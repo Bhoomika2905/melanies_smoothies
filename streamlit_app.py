@@ -55,15 +55,8 @@ import streamlit as st
 
 # Fetch data from Fruityvice API
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-
-try:
-    # Try to parse the JSON
-    data = fruityvice_response.json()
-    st.json(data)
-except requests.exceptions.JSONDecodeError:
-    # Handle the error
-    st.error("The Fruityvice API is currently unavailable. Please try again later.")
-    st.text(fruityvice_response.text)
+#st.text(fruityvice_response.json())
+fv_df=st.dataframe(data=fruityvice_response.json(),use_container_width=True)
 
 
 if time_to_insert1:
