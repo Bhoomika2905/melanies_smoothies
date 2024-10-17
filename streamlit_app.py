@@ -49,7 +49,7 @@ time_to_insert1=st.button('SUBMIT')
 #new section to display fruityvise nutrition information
 import requests
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
-st.text(fruityvice_response)
+st.text(fruityvice_response.json())
 
 if time_to_insert1:
     session.sql(my_insert_stmt1).collect()
