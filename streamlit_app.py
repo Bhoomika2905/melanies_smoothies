@@ -2,6 +2,7 @@
 from snowflake.snowpark.functions import col
 import streamlit as st
 
+
 # Write directly to the app
 st.title(":cup_with_straw: Customize Your Smoothie!:cup_with_straw:")
 st.write(
@@ -44,6 +45,11 @@ my_insert_stmt1 = """ insert into smoothies.public.orders(ingredients,name_on_or
 
 #st.write(my_insert_stmt)
 time_to_insert1=st.button('SUBMIT')
+
+#new section to display fruityvise nutrition information
+import requests
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+st.text(fruityvice_response)
 
 if time_to_insert1:
     session.sql(my_insert_stmt1).collect()
