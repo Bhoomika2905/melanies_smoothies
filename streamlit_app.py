@@ -54,9 +54,9 @@ import requests
 import streamlit as st
 
 # Fetch data from Fruityvice API
-fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+#fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
 #st.text(fruityvice_response.json())
-fv_df=st.dataframe(data=fruityvice_response.JSON(),use_container_width=True)
+#fv_df=st.dataframe(data=fruityvice_response.JSON(),use_container_width=True)
 
 
 if time_to_insert1:
