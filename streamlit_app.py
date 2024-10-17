@@ -50,14 +50,21 @@ time_to_insert1=st.button('SUBMIT')
 import requests
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
 
+import requests
+import streamlit as st
+
+# Fetch data from Fruityvice API
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon")
+
 try:
     # Try to parse the JSON
     data = fruityvice_response.json()
-    st.text(data)
+    st.json(data)
 except requests.exceptions.JSONDecodeError:
     # Handle the error
-    st.error("Failed to decode JSON. The response was: ")
+    st.error("The Fruityvice API is currently unavailable. Please try again later.")
     st.text(fruityvice_response.text)
+
 
 if time_to_insert1:
     session.sql(my_insert_stmt1).collect()
